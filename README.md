@@ -5,13 +5,13 @@ Darlene Eligado
 DATA 4381 Data Capstone Project 1  
 University of Texas at Arlington  
 
----
+
 ## PROBLEM
 - Intensive Care Units (ICUs) require early identification of high risk patients to improve outcomes and allocate resources effectively. However, ICU datasets are highly imbalanced, with most patients recovering and only a small portion experiencing critical outcomes such as death.
 - This imbalance causes machine learning models to appear highly accurate while failing to detect the patients who need attention the most.
 - The goal of this project is to improve detection of high risk ICU patients while analyzing trade-offs between model performance and real-world clinical usefulness.
 
----
+
 ## PROJECT OVERVIEW
 This project focuses on **predicting poor ICU outcomes using machine learning**, with emphasis on:
 - Class imbalance handling
@@ -20,7 +20,7 @@ This project focuses on **predicting poor ICU outcomes using machine learning**,
 - Performance trade-off analysis
 **Key finding:** Optimizing model performance significantly changes how risk is interpreted, and higher evaluation metrics do not necessarily indicate better clinical usefulness.
 
----
+
 ## DATASET
 **Source: eICU Collaborative Research Database Demo from PhysioNet**
 Link: https://physionet.org/content/eicu-crd-demo/2.0.1/
@@ -32,12 +32,11 @@ Link: https://physionet.org/content/eicu-crd-demo/2.0.1/
 <img src="images/inital_imbalance.png" width="420"/>
 - Only a small proportion of patients experience poor outcomes, making prediction difficult and biasing models toward the majority class.
 
----
 ## DATA CHARACTERISTICS
 <img src="images/vital_missing.png" width="420"/>
 - This visualization shows an example of the initial raw ICU dataset, including missingness and irregular measurements typical in clinical data.
 
----
+
 ## DATA PREPROCESSING
 Performed in: `Objective3_Preprop.ipynb`
 Key steps:
@@ -50,7 +49,7 @@ Key steps:
 Final dataset used:
 - `ICUop_prep.csv`
 
----
+
 ## MODELING APPROACH
 Models used:
 - Logistic Regression (initial baseline)
@@ -65,23 +64,25 @@ Threshold tuning:
 - Evaluated thresholds from 0.01-0.99
 - Selected based on F1-score and recall
 
----
+
 ## BASELINE PERFORMANCE
 <img src="images/baseline_metrics.png" width="350"/>
 - The Logistic Regression baseline model struggles with minority class detection.
 
----
+
 ## RESULTS
 Class-weight models:
+
 <img src="images/cwb_metrics.png" width="420"/>
 
 SMOTE models:
+
 <img src="images/smote_metrics.png" width="420"/>
 
 ### INTERACTIVE DASHBOARD
 View the full analysis in Tableau: https://public.tableau.com/app/profile/darlene.eligado/viz/icu_17640085319390/Objective3
 
----
+
 ## KEY FINDINGS
 - Threshold tuning had greater impact than model selection
 - SMOTE increased recall but introduced more false positives
@@ -89,7 +90,7 @@ View the full analysis in Tableau: https://public.tableau.com/app/profile/darlen
 - Random Forest showed higher sensitivity
 - XGBoost produced more precise predictions
 
----
+
 ## MODEL INTERPRETATION
 <img src="images/cw_ft.png" width="420"/>
 Important features:
@@ -97,18 +98,18 @@ Important features:
 - Vital signs such as heart rate and oxygen saturation
 - Lab values such as creatinine, BUN, and glucose
 
----
+
 ## TRADE-OFFS
 - Increasing recall leads to more false positives
 - SMOTE improves detection but reduces real-world realism
 - Class weighting preserves realism but reduces sensitivity
 - Lower thresholds increase alerts but reduce precision
 
----
+
 ## CONCLUSION
 Imbalance handling changes how models interpret risk. In ICU prediction, maximizing performance metrics alone is insufficient. Models must balance sensitivity, precision, and realism to be useful in clinical decision making.
 
----
+
 ## FUTURE WORK
 - Improve model's recall-precision balance
 - Expand feature engineering
@@ -116,7 +117,7 @@ Imbalance handling changes how models interpret risk. In ICU prediction, maximiz
 - Evaluate fairness and bias
 - Implement ensemble models
 
----
+
 ## DATA ACCESS
 To reproduce the full pipeline:
 1. Download the eICU Collaborative Research Database Demo from PhysioNet:  
@@ -130,7 +131,7 @@ To reproduce the full pipeline:
 Alternatively, use the prepared dataset:
 - `ICUop_prep.csv`
 
----
+
 ## HOW TO RUN
 Install dependencies:
 `pip install -r requirements.txt`
@@ -141,7 +142,7 @@ Steps:
    - `icu_modeling_classweight.ipynb`
    - `icu_modeling_smote.ipynb`
 
----
+
 ## PROJECT STRUCTURE
 - `notebooks/` : preprocessing and modeling workflows  
 - `data/` : final dataset used for Objective 3 modeling  
@@ -151,7 +152,7 @@ Steps:
 - `reports/` : written reports and project documentation  
 - `presentations/` : proposal and progress presentation slides  
 
----
+
 ## REQUIREMENTS
 - pandas
 - numpy
@@ -161,7 +162,7 @@ Steps:
 - matplotlib
 - jupyter
 
----
+
 ## REFERENCES
 [1] Johnson, A., Pollard, T., Badawi, O., & Raffa, J. (2021). eICU Collaborative Research Database Demo (version 2.0.1). PhysioNet. https://doi.org/10.13026/4mxk-na84
 
@@ -176,4 +177,5 @@ Steps:
 [6] Wang, H. E., Weiner, J. P., Saria, S., Lehmann, H., & Kharrazi, H. (2024). Assessing racial bias in healthcare predictive models: Practical lessons from an empirical evaluation of 30-day hospital readmission models. Journal of Biomedical Informatics, 156, 104683. https://doi.org/10.1016/j.jbi.2024.104683
 
 [7] Wang, H. E., Weiner, J. P., Saria, S., & Kharrazi, H. (2024). Evaluating algorithmic bias in 30-day hospital readmission models: Retrospective analysis. Journal of Medical Internet Research, 26(1), Article e47125. https://doi.org/10.2196/47125
----
+
+
