@@ -1,20 +1,17 @@
 ![UTA-DataScience-Logo](https://github.com/dareli/DATA3402.Spring.2024/assets/123596270/0cb941d4-8a3b-4382-9dd0-22c28edbb8a5)
 
-# **ICU OUTCOME PREDICTION IMBALANCE**
-## **CLASS IMBALANCE AND THRESHOLD OPTIMIZATION**
+# **ICU OUTCOME PREDICTION IMBALANCE: CLASS IMBALANCE AND THRESHOLD OPTIMIZATION**
 Darlene Eligado  
 DATA 4381 Data Capstone Project 1  
 University of Texas at Arlington  
 
 ---
-
 ## PROBLEM
 - Intensive Care Units (ICUs) require early identification of high risk patients to improve outcomes and allocate resources effectively. However, ICU datasets are highly imbalanced, with most patients recovering and only a small portion experiencing critical outcomes such as death.
 - This imbalance causes machine learning models to appear highly accurate while failing to detect the patients who need attention the most.
 - The goal of this project is to improve detection of high risk ICU patients while analyzing trade-offs between model performance and real-world clinical usefulness.
 
 ---
-
 ## PROJECT OVERVIEW
 This project focuses on **predicting poor ICU outcomes using machine learning**, with emphasis on:
 - Class imbalance handling
@@ -24,7 +21,6 @@ This project focuses on **predicting poor ICU outcomes using machine learning**,
 **Key finding:** Optimizing model performance significantly changes how risk is interpreted, and higher evaluation metrics do not necessarily indicate better clinical usefulness.
 
 ---
-
 ## DATASET
 **Source: eICU Collaborative Research Database Demo from PhysioNet**
 Link: https://physionet.org/content/eicu-crd-demo/2.0.1/
@@ -42,7 +38,6 @@ Link: https://physionet.org/content/eicu-crd-demo/2.0.1/
 - This visualization shows an example of the initial raw ICU dataset, including missingness and irregular measurements typical in clinical data.
 
 ---
-
 ## DATA PREPROCESSING
 Performed in: `Objective3_Preprop.ipynb`
 Key steps:
@@ -56,7 +51,6 @@ Final dataset used:
 - `ICUop_prep.csv`
 
 ---
-
 ## MODELING APPROACH
 Models used:
 - Logistic Regression (initial baseline)
@@ -72,13 +66,11 @@ Threshold tuning:
 - Selected based on F1-score and recall
 
 ---
-
 ## BASELINE PERFORMANCE
 <img src="images/baseline_metrics.png" width="350"/>
 - The Logistic Regression baseline model struggles with minority class detection.
 
 ---
-
 ## RESULTS
 Class-weight models:
 <img src="images/cwb_metrics.png" width="420"/>
@@ -90,7 +82,6 @@ SMOTE models:
 View the full analysis in Tableau: https://public.tableau.com/app/profile/darlene.eligado/viz/icu_17640085319390/Objective3
 
 ---
-
 ## KEY FINDINGS
 - Threshold tuning had greater impact than model selection
 - SMOTE increased recall but introduced more false positives
@@ -99,7 +90,6 @@ View the full analysis in Tableau: https://public.tableau.com/app/profile/darlen
 - XGBoost produced more precise predictions
 
 ---
-
 ## MODEL INTERPRETATION
 <img src="images/cw_ft.png" width="420"/>
 Important features:
