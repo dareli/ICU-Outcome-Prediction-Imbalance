@@ -18,12 +18,15 @@ This project focuses on **predicting poor ICU outcomes using machine learning**,
 - Threshold optimization
 - Model comparison
 - Performance trade-off analysis
+
 **Key finding:** Optimizing model performance significantly changes how risk is interpreted, and higher evaluation metrics do not necessarily indicate better clinical usefulness.
 
 
 ## DATASET
 **Source: eICU Collaborative Research Database Demo from PhysioNet**
+
 Link: https://physionet.org/content/eicu-crd-demo/2.0.1/
+
 - Approximately 2,520 ICU stays
 - Includes demographic, clinical, and physiological data
 - Uses first 24-hour aggregated vitals and lab values
@@ -58,7 +61,7 @@ Models used:
 
 Imbalance strategies:
 - Class weighting
-- SMOTE synthetic minority oversampling
+- SMOTE 
 
 Threshold tuning:
 - Evaluated thresholds from 0.01-0.99
@@ -66,7 +69,7 @@ Threshold tuning:
 
 
 ## BASELINE PERFORMANCE
-<img src="images/baseline_metrics.png" width="350"/>
+<img src="images/inital_imbalance.png" width="420"/>
 - The Logistic Regression baseline model struggles with minority class detection.
 
 
@@ -93,7 +96,9 @@ View the full analysis in Tableau: https://public.tableau.com/app/profile/darlen
 
 ## MODEL INTERPRETATION
 <img src="images/cw_ft.png" width="420"/>
+
 Important features:
+
 - APACHE severity score
 - Vital signs such as heart rate and oxygen saturation
 - Lab values such as creatinine, BUN, and glucose
@@ -120,21 +125,15 @@ Imbalance handling changes how models interpret risk. In ICU prediction, maximiz
 
 ## DATA ACCESS
 To reproduce the full pipeline:
-1. Download the eICU Collaborative Research Database Demo from PhysioNet:  
-   https://physionet.org/content/eicu-crd-demo/2.0.1/
+1. Download the eICU Collaborative Research Database Demo from PhysioNet: https://physionet.org/content/eicu-crd-demo/2.0.1/
 2. Use the SQLite database file from PhysioNet.
-3. Run the merging notebook:
-   - `mergeICU_db.ipynb`
-4. Run the Objective 3 preprocessing notebook:
-   - `Objective3_Preprop.ipynb`
+3. Run the merging notebook: `mergeICU_db.ipynb`
+4. Run the Objective 3 preprocessing notebook: `Objective3_Preprop.ipynb`
 
-Alternatively, use the prepared dataset:
-- `ICUop_prep.csv`
+Alternatively, use the prepared dataset: `ICUop_prep.csv`
 
 
 ## HOW TO RUN
-Install dependencies:
-`pip install -r requirements.txt`
 Steps:
 1. Run preprocessing:
    - `Objective3_Preprop.ipynb`
